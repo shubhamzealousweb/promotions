@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Checkout\Block\Cart\Coupon">
+      <plugin name="zealousweb_promotions_plugin" type="Zealousweb\Promotions\Plugin\Coupon" sortOrder="1" disabled="false" />
+    </type>
+</config>

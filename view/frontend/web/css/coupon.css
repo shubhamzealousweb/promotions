@@ -1,0 +1,169 @@
+a{
+	display: block;
+}
+.coupon-code-main-container .coupon-code-template {
+    border: 1px solid #ecf9ff;
+    box-shadow: 2px 1px 10px 2px #e5e5e5;
+    margin-bottom: 20px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.coupon-code-main-container .coupon-code {
+    font-weight: 600;
+    margin-left: 10px
+}
+.coupon-code-main-container .coupon-code span:after {
+    content: '';
+    height: 30px;
+    width: 30px;
+    background: #47b4c7;
+    position: absolute;
+    top: 5px;
+    left: -14px;
+    border-radius: 4px;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.coupon-code-main-container .coupon-code span:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    position: absolute;
+    top: 16px;
+    left: 2px;
+    z-index: 1;
+    border-radius: 10px;
+}
+.coupon-details {
+    flex: 1;
+    padding: 0 15px;
+}
+.coupon-rule-name {
+    font-size: 2rem;
+    padding: 5px 0;
+    color: #48b6c8;
+}
+.coupon-code-main-container>span {
+    margin-bottom: 10px;
+    display: block;
+}
+.coupon-code-main-container .coupon-code span {
+    border-radius: 3px;
+    background-color: #47b4c7;
+    padding-left: 24px;
+    padding-right: 10px;
+    position: relative;
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.apply-coupon-code {
+    padding-top: 10px;
+}
+.view-apply-coupon-grid {
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px solid;
+    color: #157fae;
+}
+.view-apply-coupon-grid:hover {
+    color: #4db6be;
+}
+.cart-summary .coupon-code-main-container .coupon-code-template {
+	flex-direction: column;
+	align-items: flex-start;
+}
+.cart-summary .coupon-description {
+	margin: 0;
+	font-size: 14px;
+}
+.cart-summary .coupon-details {
+	padding: 15px 0 10px 0;
+}
+.cart-summary .coupon-date-details {
+    font-size: 14px;
+}
+.cart-summary .coupon-rule-name {
+	font-size: 16px;
+}
+.cart-summary .coupon-code-main-container {
+    margin-top: 15px;
+}
+.checkout-index-index .coupon-code-main-container .coupon-code-template .coupon-code {
+    border-radius: 3px;
+    background-color: #47b4c7;
+    padding-left: 24px;
+    padding-right: 10px;
+    position: relative;
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.checkout-index-index .coupon-code-main-container .coupon-code-template .coupon-code:before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    position: absolute;
+    top: 16px;
+    left: 2px;
+    z-index: 1;
+    border-radius: 10px;
+}
+.checkout-index-index .coupon-code-main-container .coupon-code-template .coupon-code:after {
+    content: '';
+    height: 30px;
+    width: 30px;
+    background: #47b4c7;
+    position: absolute;
+    top: 5px;
+    left: -14px;
+    border-radius: 4px;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.checkout-index-index .checkout-payment-method .payment-option._collapsible .form-discount .coupon-code-template .actions-toolbar {
+    width: auto;
+}
+.checkout-index-index .modal-popup .coupon-description {
+    margin: 0;
+    font-size: 16px;
+}
+.checkout-index-index .modal-popup .coupon-rule-name {
+    font-size: 16px;
+}
+.checkout-index-index .modal-popup .coupon-date-details {
+    font-size: 14px;
+}
+.cart-discount .block.discount{
+    margin-bottom: 0;
+}
+.cart-container .cart-discount .block.discount{
+    width: 100%;
+}
+.opc-wrapper .form.form-discount {
+    max-width: 700px;
+}
+@media (max-width: 1024px){
+    /* .coupon-code-main-container .coupon-code-template {
+        flex-direction: column;
+        align-items: flex-start;
+    } */
+    .coupon-description {
+	    margin: 5px 0 10px 0;
+	}
+	/* .coupon-details {
+		padding: 15px 0 0px 0;
+	} */
+}

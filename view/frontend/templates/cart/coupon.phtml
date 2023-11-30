@@ -1,0 +1,11 @@
+<?php $helper = $this->helper('Zealousweb\Promotions\Helper\Data'); ?>
+<?php echo $this->getChildHtml('promotions.cart.coupon.items'); ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "promotions": {
+                "is_popup": <?php echo $helper->getIsPopup(); ?>
+    		}
+    	}
+   }
+</script>

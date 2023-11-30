@@ -1,0 +1,78 @@
+<!-- ko if: isEnableModule -->
+<div class="view-promotional-code-content">
+    <!-- ko if: showCoupons -->
+        <div class="view-promotional-code-title" data-role="title">
+            <!-- ko if: isPopup -->
+                <span class="view-promotional-code-title action action-toggle" id="block-discount-heading" role="heading" aria-level="2" data-bind="click: showPopup">
+                    <!-- ko i18n: 'View Promotions Code'--><!-- /ko -->
+                </span>
+            <!-- /ko -->
+            <!-- ko ifnot: isPopup -->
+                <span class="view-promotional-code-title action action-toggle" id="block-discount-heading" role="heading" aria-level="2" data-bind="click: showSlider">
+                    <!-- ko i18n: 'View Promotions Code'--><!-- /ko -->
+                </span>
+            <!-- /ko -->
+        </div>
+    <!-- /ko -->
+    <div class="view-payment-option-content" data-role="content">
+        <!-- ko if: isEmpty -->
+            <div class="apply-coupon-code-grid-table" style="display: none;">
+                <span><!-- ko i18n: 'No Coupons Available.'--><!-- /ko --></span>
+            </div>
+        <!-- /ko -->
+        <!-- ko ifnot: isEmpty -->
+            <form class="form form-discount" id="discount-form">
+                <div class="apply-coupon-code-grid">
+                    <div class="apply-coupon-code-grid-table" style="display: none;">
+                        <div class="coupon-code-main-container">
+                            <span><!-- ko i18n: 'Active Coupon Code'--><!-- /ko --></span>
+                            <div class="" data-bind="foreach: coupons">
+                                <!-- ko if: $parent.showInCart(show_in_cart) -->
+                                <div class="coupon-code-template">
+                                    <div class="coupon-code" data-bind="text: code"></div>
+                                    <div class="coupon-details">
+                                        <div class="coupon-date-details">
+                                            <!-- ko if: to_date -->
+                                                <!-- ko i18n: 'Expire On:'--><!-- /ko -->
+                                                <span data-bind="text: $parent.getToDateFormat(to_date)"></span>
+                                            <!-- /ko -->
+                                            <!-- ko ifnot: to_date -->
+                                                <!-- ko i18n: 'Ongoing'--><!-- /ko -->
+                                            <!-- /ko -->
+                                        </div>
+                                        <div class="coupon-rule-name" data-bind="text: name"></div>
+                                        <div class="coupon-description" data-bind="text: description"></div>
+                                    </div>
+                                    <div class="actions-toolbar">
+                                        <div class="primary">
+                                            <!-- ko ifnot: $parent.isSameCoupon(code) -->
+                                                <!-- ko ifnot: $parent.disable(code) -->
+                                                    <button class="action action-apply primary" type="submit" data-bind="click: $parent.apply.bind(code)">
+                                                        <span><!-- ko i18n: 'Apply Discount'--><!-- /ko --></span>
+                                                    </button>
+                                                <!-- /ko -->
+                                                <!-- ko if: $parent.disable(code) -->
+                                                    <button class="action action-apply primary" type="submit" data-bind="click: $parent.apply.bind(code)" disabled>
+                                                        <span><!-- ko i18n: 'Apply Discount'--><!-- /ko --></span>
+                                                    </button>
+                                                <!-- /ko -->
+                                            <!-- /ko -->
+                                            <!-- ko if: $parent.isSameCoupon(code) -->
+                                                <button class="action action-cancel primary" type="submit" data-bind="click: $parent.cancel">
+                                                    <span><!-- ko i18n: 'Cancel Coupon'--><!-- /ko --></span>
+                                                </button>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <!-- /ko -->
+    </div>
+</div>
+<!-- /ko -->
+<div data-bind="afterRender: appendDiv"/>

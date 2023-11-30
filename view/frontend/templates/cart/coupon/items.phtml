@@ -1,0 +1,52 @@
+<?php
+$helper = $this->helper('Zealousweb\Promotions\Helper\Data');
+$coupons = $helper->getCoupons();
+$customerSession = $helper->getCustomerSession();
+$hasCouponCode = $block->getCouponCode();
+?>
+
+<?php if($helper->isGuestAllowed() || $customerSession->isLoggedIn()): ?>
+	<div class="apply-coupon-code" style="display: none;">
+		<div>
+			<div class="view-apply-coupon-grid"><?= __("View Promotions Code"); ?></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		require(['jquery', 'jquery/ui'], function($){ 
+			var couponContent = $("[class=apply-coupon-code]");
+			$("[aria-labelledby=block-discount-heading]").append(couponContent);
+			$(couponContent).show();
+ 		});
+	</script>
+<?php endif; ?>
+
+<div class="apply-coupon-code-grid">
+	<?php if(count($coupons)): ?>
+		<div class="apply-coupon-code-grid-table" style="display: none;">
+			<div class="coupon-code-main-container">
+				<span><?= __("Active Coupon Code"); ?></span>
+				<?php foreach($coupons as $item): ?>
+					<?php if($item->getShowInCart() == 1): ?>
+						<div class="coupon-code-template">
+							<div class="coupon-code"><span><?php echo $item->getCode(); ?></span></div>
+							<div class="coupon-details">
+								<div class="coupon-date-details">
+									<?php echo ($item->getToDate() != '') ? 'Expire On: '.$block->getToDateFormat($item->getToDate()) : __("Ongoing")?></div>
+								<div class="coupon-rule-name"><?php echo $item->getName(); ?></div>
+								<div class="coupon-description"><?php echo $item->getDescription(); ?></div>
+							</div>
+							<div class="coupon-buttons">
+								<a class="action apply primary" type="button" value="<?= ($hasCouponCode && $hasCouponCode == $item->getCode()) ? $block->escapeHtmlAttr(__('Cancel Coupon')) : $block->escapeHtmlAttr(__('Apply Discount')); ?>" data-post='<?= /* @noEscape */ $block->getActionUrl($item->getCode(), ($hasCouponCode) ? 1 : 0) ?>' <?= ($hasCouponCode && $hasCouponCode != $item->getCode()) ? 'disabled' : ''; ?>>
+									<span><?= ($hasCouponCode && $hasCouponCode == $item->getCode()) ? $block->escapeHtmlAttr(__('Cancel Coupon')) : $block->escapeHtmlAttr(__('Apply Discount')); ?></span></a>
+							</div>
+						</div>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	<?php else: ?>
+		<div class="apply-coupon-code-grid-table" style="display: none;">
+			<span><?= __("No Coupons Available."); ?></span>
+		</div>
+	<?php endif; ?>
+</div>

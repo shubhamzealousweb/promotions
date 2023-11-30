@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <zealousweb_extensions>
+            <promotions_value>
+                <plugin>0</plugin>
+                <guestcustomer>0</guestcustomer>
+                <type>in-out</type>
+                <expired>0</expired>
+            </promotions_value>
+        </zealousweb_extensions>
+    </default>
+</config>

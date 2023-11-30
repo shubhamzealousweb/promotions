@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+       <css src="Zealousweb_Promotions::css/coupon.css"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.cart.coupon">
+            <block class="Zealousweb\Promotions\Block\Cart\Coupon" name="promotions.cart.coupon" as="promotions.cart.coupon" template="Zealousweb_Promotions::cart/coupon.phtml" ifconfig="zealousweb_extensions/promotions_value/plugin">
+                <block class="Zealousweb\Promotions\Block\Cart\Coupon\Items" name="promotions.cart.coupon.items" template="Zealousweb_Promotions::cart/coupon/items.phtml"/>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

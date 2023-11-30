@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="zealousweb_extensions" translate="label" type="text" sortOrder="600" showInDefault="1" showInWebsite="1">
+            <class>separator-top</class>
+            <label>Promotions</label>
+            <tab>Zealousweb_extensions</tab>
+            <resource>Zealousweb_Promotions::promotions</resource>
+            <group id="promotions_value" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                <label>Module Status</label>
+                <field id="plugin" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Enable/Disable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="guestcustomer" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Allowed For Guest Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="type" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Type Of Ui</label>
+                    <source_model>Zealousweb\Promotions\Model\System\Config\Source\UiType</source_model>
+                </field>
+                <field id="expired" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Show Expired Coupon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
